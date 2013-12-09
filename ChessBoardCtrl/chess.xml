@@ -1,0 +1,379 @@
+<CHESS>
+   <FEDERATIONS>
+      <FEDERATION id="fide">
+         <CONTACT type="business">
+            <ADDRESS type="work">
+               <STREET/>
+               <STREET/>
+               <COUNTRY/>
+               <STATE/>
+               <PROVENCE/>
+               <CITY/>
+               <ZIP/>
+            </ADDRESS>
+            <PHONE type="work"/>
+            <EMAIL type="ratings"/>
+         </CONTACT>
+      </FEDERATION>
+      <FEDERATION id="uscf">
+         <CONTACT type="business">
+            <ADDRESS type="">
+               <STREET/>
+               <STREET/>
+               <COUNTRY/>
+               <STATE/>
+               <PROVENCE/>
+               <CITY/>
+               <ZIP/>
+            </ADDRESS>
+            <PHONE type=""/>
+            <EMAIL type=""/>
+         </CONTACT>
+         <PLAYERS>
+            <PLAYER>
+               <NAME>
+                  <FIRST>Gregory</FIRST>
+                  <MIDDLE>Allen</MIDDLE>
+                  <LAST>Prentice</LAST>
+               </NAME>
+               <CONTACT>
+                  <ADDRESS type="home">
+                     <STREET>579 239th Ave. SE</STREET>
+                     <STREET/>
+                     <COUNTRY>USA</COUNTRY>
+                     <STATE>Washington</STATE>
+                     <PROVENCE/>
+                     <CITY>Sammamish</CITY>
+                     <ZIP>98074</ZIP>
+                  </ADDRESS>
+                  <PHONE type="home">425.369.9238</PHONE>
+                  <EMAIL type="home">gregoryprentice@attbi.com</EMAIL>
+               </CONTACT>
+               <FEDERATION type="uscf">
+                  <RATING>1526</RATING>
+                  <ID>12723055</ID>
+               </FEDERATION>
+               <TITLES>
+                  <TITLE federation="none">none</TITLE>
+               </TITLES>
+            </PLAYER>
+         </PLAYERS>
+      </FEDERATION>
+   </FEDERATIONS>
+   <CLUBS>
+      <CLUB id="100000">
+         <NAME>
+            <BUSINESS>Seattle Chess Club</BUSINESS>
+         </NAME>
+         <CONTACT type="business">
+            <ADDRESS type="work">
+               <STREET/>
+               <STREET/>
+               <COUNTRY/>
+               <STATE/>
+               <PROVENCE/>
+               <CITY/>
+               <ZIP/>
+            </ADDRESS>
+            <PHONE type="work"/>
+            <EMAIL type="ratings"/>
+         </CONTACT>
+         <PLAYERS>
+            <PLAYER>
+               <NAME>
+                  <FIRST>Gregory</FIRST>
+                  <MIDDLE>Allen</MIDDLE>
+                  <LAST>Prentice</LAST>
+               </NAME>
+               <CONTACT type="home">
+                  <ADDRESS type="home">
+                     <STREET>579 239th Ave. SE</STREET>
+                     <STREET/>
+                     <COUNTRY>USA</COUNTRY>
+                     <STATE>Washington</STATE>
+                     <PROVENCE/>
+                     <CITY>Sammamish</CITY>
+                     <ZIP>98074</ZIP>
+                  </ADDRESS>
+                  <PHONE type="home">425.369.9238</PHONE>
+                  <EMAIL type="home">gregoryprentice@attbi.com</EMAIL>
+               </CONTACT>
+               <FEDERATION type="uscf">
+                  <RATING>1526</RATING>
+                  <ID>12723055</ID>
+               </FEDERATION>
+               <FEDERATION type="club">
+                  <RATING>1650</RATING>
+                  <ID>1000000</ID>
+               </FEDERATION>
+               <TITLES>
+                  <TITLE federation="none">none</TITLE>
+               </TITLES>
+            </PLAYER>
+         </PLAYERS>
+      </CLUB>
+   </CLUBS>
+   <TOURNAMENTS>
+      <TOURNAMENT id="uscf-00001" federation="uscf" rated="yes">
+         <NAME>Las Vegas National Open</NAME>
+         <LOCATION>
+            <CONTACT type="location">
+               <NAME type="business">Riviara Hotel</NAME>
+               <ADDRESS type="business">
+                  <STREET/>
+                  <STREET/>
+                  <COUNTRY/>
+                  <STATE/>
+                  <PROVENCE/>
+                  <CITY/>
+                  <ZIP/>
+               </ADDRESS>
+               <PHONE type=""/>
+               <EMAIL type=""/>
+            </CONTACT>
+         </LOCATION>
+         <ORGANIZERS>
+            <CONTACT type="director">
+               <NAME type="personal">
+                  <FIRST/>
+                  <MIDDLE/>
+                  <LAST/>
+               </NAME>
+               <ADDRESS type="work">
+                  <STREET/>
+                  <STREET/>
+                  <COUNTRY/>
+                  <STATE/>
+                  <PROVENCE/>
+                  <CITY/>
+                  <ZIP/>
+               </ADDRESS>
+               <PHONE type="home"/>
+               <EMAIL type="home"/>
+            </CONTACT>
+         </ORGANIZERS>
+         <SPONSORS>
+            <SPONSOR>
+               <NAME>
+                  <BUSINESS>Ford Mortor Company</BUSINESS>
+               </NAME>
+               <CONTACT type="business">
+                  <ADDRESS type="business">
+                     <STREET/>
+                     <STREET/>
+                     <COUNTRY/>
+                     <STATE/>
+                     <PROVENCE/>
+                     <CITY/>
+                     <ZIP/>
+                  </ADDRESS>
+                  <PHONE type=""/>
+                  <EMAIL type=""/>
+               </CONTACT>
+               <CONTACT type="">
+                  <NAME>
+                     <FIRST/>
+                     <MIDDLE/>
+                     <LAST/>
+                  </NAME>
+                  <ADDRESS type="">
+                     <STREET/>
+                     <STREET/>
+                     <COUNTRY/>
+                     <STATE/>
+                     <PROVENCE/>
+                     <CITY/>
+                  </ADDRESS>
+                  <PHONE type=""/>
+                  <EMAIL type=""/>
+               </CONTACT>
+            </SPONSOR>
+         </SPONSORS>
+         <CONTROLS>
+            <CONTROL number="1" delay="0" moves="40" sudden-death="no">
+               <TIME type="">
+                  <HOURS>2</HOURS>
+                  <MINUTES/>
+                  <SECONDS/>
+               </TIME>
+            </CONTROL>
+            <CONTROL number="2" delay="5" moves="20" sudden-death="yes">
+               <TIME type="">
+                  <HOURS>1</HOURS>
+                  <MINUTES/>
+                  <SECONDS/>
+               </TIME>
+            </CONTROL>
+         </CONTROLS>
+         <ROUNDS total="5" pairing="swiss">
+            <ROUND number="1">
+               <DATE type="start">
+                  <YEAR/>
+                  <MONTH/>
+                  <DAY/>
+               </DATE>
+               <TIME type="">
+                  <HOURS/>
+                  <MINUTES/>
+                  <SECONDS/>
+               </TIME>
+            </ROUND>
+         </ROUNDS>
+         <DATE type="start">
+            <year/>
+            <month/>
+            <day/>
+         </DATE>
+         <DATE type="end">
+            <year/>
+            <month/>
+            <day/>
+         </DATE>
+      </TOURNAMENT>
+      <PLAYERS>
+         <PLAYER>
+            <RATING>1526</RATING>
+            <ID>12723055</ID>
+            <NAME>
+               <FIRST>Gregory</FIRST>
+               <MIDDLE>Allen</MIDDLE>
+               <LAST>Prentice</LAST>
+            </NAME>
+            <CONTACT>
+               <ADDRESS type="home">
+                  <STREET>579 239th Ave. SE</STREET>
+                  <STREET/>
+                  <COUNTRY>USA</COUNTRY>
+                  <STATE>Washington</STATE>
+                  <PROVENCE/>
+                  <CITY>Sammamish</CITY>
+                  <ZIP>98074</ZIP>
+               </ADDRESS>
+               <PHONE type="home">425.369.9238</PHONE>
+               <EMAIL type="home">gregoryprentice@attbi.com</EMAIL>
+            </CONTACT>
+            <TITLES>
+               <TITLE federation="">none</TITLE>
+            </TITLES>
+         </PLAYER>
+      </PLAYERS>
+   </TOURNAMENTS>
+   <PLAYERS>
+      <PLAYER>
+         <NAME>
+            <FIRST>Gregory</FIRST>
+            <MIDDLE>Allen</MIDDLE>
+            <LAST>Prentice</LAST>
+         </NAME>
+         <CONTACT type="home">
+            <ADDRESS type="home">
+               <STREET/>
+               <STREET/>
+               <COUNTRY/>
+               <STATE/>
+               <PROVENCE/>
+               <CITY/>
+               <ZIP/>
+            </ADDRESS>
+            <PHONE type="home">425.369.9238</PHONE>
+            <EMAIL type="home">gregoryprentice@attbi.com</EMAIL>
+         </CONTACT>
+         <FEDERATION type="uscf">
+            <RATING/>
+            <ID/>
+         </FEDERATION>
+         <FEDERATION type="fide">
+            <RATING/>
+            <ID/>
+         </FEDERATION>
+         <TITLES>
+            <TITLE federation="fide">IM</TITLE>
+         </TITLES>
+      </PLAYER>
+   </PLAYERS>
+   <GAMES type="">
+      <GAME round="1" board="" section="" federation="uscf" results=".5-.5">
+         <TOURNAMENT identification="uscf-00001">
+            <NAME>Las Vegas National Open</NAME>
+         </TOURNAMENT>
+         <DATE type="start">
+            <year/>
+            <month/>
+            <day/>
+         </DATE>
+         <TIME type="start">
+            <HOURS/>
+            <MINUTES/>
+            <SECONDS/>
+         </TIME>
+         <CLASSIFICATION>
+            <POSITION type="opening" code="" move="1">
+               <NAME/>
+            </POSITION>
+            <POSITION type="middle" code="" move="14">
+               <NAME/>
+            </POSITION>
+            <POSITION type="ending" code="" move="">
+               <NAME/>
+            </POSITION>
+         </CLASSIFICATION>
+         <PLAYER color="white" identification="">
+            <NAME type="personal">
+               <FIRST/>
+               <MIDDLE/>
+               <LAST/>
+            </NAME>
+         </PLAYER>
+         <PLAYER color="black" identification="">
+            <NAME type="personal">
+               <FIRST/>
+               <MIDDLE/>
+               <LAST/>
+            </NAME>
+         </PLAYER>
+         <LISTINGS>
+            <LISTING notation="san" type="xml">
+               <TURN number="1">
+                  <WHITE MOVE="e4">
+                     <COMMENT type=""/>
+                     <TIME type="game">
+                        <HOURS/>
+                        <MINUTES/>
+                        <SECONDS/>
+                     </TIME>
+                  </WHITE>
+                  <BLACK MOVE="e5">
+                     <COMMENT type=""/>
+                     <TIME type="game">
+                        <HOURS/>
+                        <MINUTES/>
+                        <SECONDS/>
+                     </TIME>
+                  </BLACK>
+               </TURN>
+               <TURN number="2">
+                  <WHITE>
+                     <MOVE>Nc3</MOVE>
+                     <COMMENT type=""/>
+                     <TIME type="">
+                        <HOURS/>
+                        <MINUTES/>
+                        <SECONDS/>
+                     </TIME>
+                  </WHITE>
+                  <BLACK>
+                     <MOVE>Nf6</MOVE>
+                     <COMMENT type=""/>
+                     <TIME type="">
+                        <HOURS/>
+                        <MINUTES/>
+                        <SECONDS/>
+                     </TIME>
+                  </BLACK>
+               </TURN>
+            </LISTING>
+            <LISTING notation="san" type="pgn">1. e4 35 2. Nc3 Nf6</LISTING>
+         </LISTINGS>
+      </GAME>
+   </GAMES>
+</CHESS>
