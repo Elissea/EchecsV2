@@ -2,6 +2,7 @@ package Common;
 
 
 public class Couleur {
-    public final static boolean BLANC = true;
-    public final static boolean NOIR = false;
+    public final static int NEUTRE = 0;
+    public final static int BLANC = 1;
+    public final static int NOIR = 2;
 }

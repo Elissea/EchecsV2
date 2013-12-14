@@ -1,8 +1,0 @@
-C:\Users\Elissea\Documents\EFREI\EchecEfrei\ChessBoardCtrl\bin\Debug\ChessBoardCtrl.dll
-C:\Users\Elissea\Documents\EFREI\EchecEfrei\ChessBoardCtrl\bin\Debug\ChessBoardCtrl.pdb
-C:\Users\Elissea\Documents\EFREI\EchecEfrei\ChessBoardCtrl\obj\Debug\ChessBoardCtrl.csprojResolveAssemblyReference.cache
-C:\Users\Elissea\Documents\EFREI\EchecEfrei\ChessBoardCtrl\obj\Debug\ChessBoardCtrl.ChessBoard.resources
-C:\Users\Elissea\Documents\EFREI\EchecEfrei\ChessBoardCtrl\obj\Debug\ChessBoardCtrl.GameNavigation.resources
-C:\Users\Elissea\Documents\EFREI\EchecEfrei\ChessBoardCtrl\obj\Debug\ChessBoardCtrl.csproj.GenerateResource.Cache
-C:\Users\Elissea\Documents\EFREI\EchecEfrei\ChessBoardCtrl\obj\Debug\ChessBoardCtrl.dll
-C:\Users\Elissea\Documents\EFREI\EchecEfrei\ChessBoardCtrl\obj\Debug\ChessBoardCtrl.pdb

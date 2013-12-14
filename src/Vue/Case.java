@@ -4,13 +4,19 @@
  */
 package Vue;
 
+import Common.Coordonnee;
 import Common.Couleur;
-import Modele.Plateau.Pieces.Piece;
-import Modele.Plateau.Pieces.Vide;
+import Modele.Piece;
+import Modele.Vide;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Point;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import static javax.swing.SwingConstants.CENTER;
+import javax.swing.border.Border;
 
 /**
  *
@@ -18,66 +24,29 @@ import javax.swing.JLabel;
  */
 public class Case extends JLabel {
 
-    private Point coordonnees;
-    private Piece piece;
-    private Color couleur;
-    private boolean isSelectionnee;
+    private Coordonnee coordonnee;
 
-    public Case(Color couleur, int x, int y) {
-        this.coordonnees = new Point(x, y);
-        this.piece = Vide.getInstance();
-        this.isSelectionnee = false;
-        this.couleur = couleur;
+    public Case(Color couleur, Coordonnee coordonnee) {
+        this.coordonnee = coordonnee;
+
         this.setPreferredSize(new Dimension(75, 75));
         this.setBackground(couleur);
         this.setOpaque(true);
     }
 
-    public void setIcone(String icone) {
-        this.setText(icone);
-        this.setForeground(Color.RED);
+    public Coordonnee getCoordonnee() {
+        return this.coordonnee;
     }
 
-    public String getIcone() {
-        return this.getText();
-    }
-
-    public Point getPosition() {
-        return this.coordonnees;
-    }
-
-    public void setPiece(Piece piece) {
-        this.piece = piece;
-        
-        if (piece.equals(Vide.getInstance())) {
-            this.setIcone("");
-        } else {
-            String couleur = piece.getCouleur() == Couleur.BLANC ? "Blanc" : "Noir";
-            String denomination = piece.getDenomination() + "_" + couleur;
-            this.setIcone(denomination);
-        }
-    }
-
-    public void removePiece() {
-        this.piece = Vide.getInstance();
-    }
-
-    public boolean isSelectionnee() {
-        return this.isSelectionnee;
+    public void setImage(Icon icone) {
+        this.setIcon(icone);
     }
 
     public void selectionner() {
-        this.isSelectionnee = true;
-        this.setBackground(Color.yellow);
+        this.setBorder(javax.swing.BorderFactory.createLineBorder(Color.ORANGE, 5));
     }
 
     public void deselectionner() {
-        this.isSelectionnee = false;
-        this.setBackground(this.couleur);
+        this.setBorder(javax.swing.BorderFactory.createLineBorder(Color.ORANGE, 0));
     }
-
-    public Piece getPiece() {
-        return this.piece;
-    }
-    
 }

@@ -1,99 +1,97 @@
 package Vue;
 
+import Common.Coordonnee;
 import Common.Couleur;
-import Modele.Deplacement;
-import Modele.Plateau.Pieces.Piece;
-import Modele.Plateau.Pieces.Vide;
-import Modele.Plateau.Plateau;
+import Common.Valeur;
+import Modele.Plateau;
+import Modele.Case;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
-import java.awt.Point;
-import java.awt.event.MouseListener;
+import java.awt.Toolkit;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class Echiquier extends JPanel {
 
     private Plateau plateau;
-    private int taille;
-    private Case[][] cases;
-    private boolean couleurActive;
+    private Vue.Case[][] cases;
 
-    public Echiquier(int taille, Plateau plateau, boolean couleurActive) {
+    public Echiquier(Plateau plateau) {
         this.plateau = plateau;
-        this.taille = taille;
-        this.couleurActive = couleurActive;
+        this.cases = new Vue.Case[8][8];
 
-        this.cases = new Case[taille][taille];
+        this.setLayout(new GridLayout(8, 8));
 
-        this.setLayout(new GridLayout(taille, taille));
-
-        for (int i = 0; i < taille; i++) {
-            for (int j = 0; j < taille; j++) {
+        for (int i = 7; i >= 0; i--) {
+            for (int j = 0; j < 8; j++) {
                 if ((i + j) % 2 == 0) {
-                    this.cases[i][j] = new Case(Color.WHITE, i, j);
+                    this.cases[i][j] = new Vue.Case(Color.WHITE, new Coordonnee(i, j));
                 } else {
-                    this.cases[i][j] = new Case(Color.BLACK, i, j);
+                    this.cases[i][j] = new Vue.Case(Color.BLACK, new Coordonnee(i, j));
                 }
 
+                this.cases[i][j].setText(i + "/" + j);
+                this.cases[i][j].setForeground(Color.lightGray);
                 this.add(this.cases[i][j]);
             }
         }
 
+        this.setPreferredSize(new Dimension(800, 800));
+        this.setOpaque(true);
+    }
+
+    public void paintComponent(Graphics2D g) {
+        Graphics2D g2d = (Graphics2D) getGraphics();
+        g2d.scale(1, -1);
     }
 
     public void initialiser() {
-        this.couleurActive = Couleur.BLANC;
-        
-        for (int i = 0; i < taille; i++) {
-            for (int j = 0; j < taille; j++) {
-                if ((i + j) % 2 == 0) {
-                    this.cases[i][j].setPiece(Vide.getInstance());
-                } else {
-                    this.cases[i][j].setPiece(Vide.getInstance()); 
-                }
+        Toolkit toolkit = getToolkit();
+
+        System.out.println("Initialisation du plateau");
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
                 
-                this.cases[i][j].deselectionner();
-               
+                Case emplacement = this.plateau.getCaseParCoordonnee(new Coordonnee(i, j));
+                                
+                String imageUrl = emplacement.getPiece().getCouleur() == Couleur.BLANC ? "/graphics/blancs/" : "/graphics/noirs/";
+                Icon icon;
+
+                switch (emplacement.getPiece().getValeur()) {
+                    case Valeur.PION:
+                        icon = new ImageIcon(getClass().getResource(imageUrl + "pion.gif"));
+                        this.cases[i][j].setImage(icon);
+                        break;
+                    case Valeur.TOUR:
+                        icon = new ImageIcon(getClass().getResource(imageUrl + "tour.gif"));
+                        this.cases[i][j].setImage(icon);
+                        break;
+                    case Valeur.CAVALIER:
+                        icon = new ImageIcon(getClass().getResource(imageUrl + "cavalier.gif"));
+                        this.cases[i][j].setImage(icon);
+                        break;
+                    case Valeur.FOU:
+                        icon = new ImageIcon(getClass().getResource(imageUrl + "fou.gif"));
+                        this.cases[i][j].setImage(icon);
+                        break;
+                    case Valeur.ROI:
+                        icon = new ImageIcon(getClass().getResource(imageUrl + "roi.gif"));
+                        this.cases[i][j].setImage(icon);
+                        break;
+                    case Valeur.DAME:
+                        icon = new ImageIcon(getClass().getResource(imageUrl + "reine.gif"));
+                        this.cases[i][j].setImage(icon);
+                        break;
+                }
             }
         }
- 
-        for (Piece piece : this.plateau.getPieces()) {
-            int x = (int) piece.getPosition().getX();
-            int y = (int) piece.getPosition().getY();
-            this.cases[x][y].setPiece(piece);
-        }
-
-    }
-
-    
-    public void switchCouleur() {
-        this.couleurActive = !this.couleurActive;
     }
     
-    public boolean getCouleurActive() {
-       return this.couleurActive;
-    }
-    
-    public Case getCase(Point coordonnees) {
-        return this.cases[(int) coordonnees.getX()][(int) coordonnees.getY()];
-    }
-
-    public void effectuerDeplacement(Deplacement deplacement) {
-        Case case_depart = this.cases[(int) deplacement.getDepart().getX()][(int) deplacement.getDepart().getY()];
-        Case case_arrivee = this.cases[(int) deplacement.getArrivee().getX()][(int) deplacement.getArrivee().getY()];
-
-        case_arrivee.setPiece(case_depart.getPiece());
-        case_arrivee.deselectionner();
-
-        case_depart.setPiece(Vide.getInstance());
-        case_depart.deselectionner();
-    }
-
-    public void addClicSurCaseListener(MouseListener clicSurCaseListener) {
-        for (int i = 0; i < this.taille; i++) {
-            for (int j = 0; j < this.taille; j++) {
-                this.cases[i][j].addMouseListener(clicSurCaseListener);
-            }
-        }
+    public Vue.Case[][] getCases() {
+        return this.cases;
     }
 }
