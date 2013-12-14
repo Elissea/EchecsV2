@@ -58,7 +58,7 @@ public class Echiquier extends JPanel {
                 
                 Case emplacement = this.plateau.getCaseParCoordonnee(new Coordonnee(i, j));
                                 
-                String imageUrl = emplacement.getPiece().getCouleur() == Couleur.BLANC ? "/graphics/blancs/" : "/graphics/noirs/";
+                String imageUrl = emplacement.getPiece().getCouleur() == Couleur.BLANC ? "/Images/Blancs/" : "/Images/Noirs/";
                 Icon icon;
 
                 switch (emplacement.getPiece().getValeur()) {
