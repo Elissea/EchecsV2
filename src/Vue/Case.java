@@ -42,6 +42,10 @@ public class Case extends JLabel {
         this.setIcon(icone);
     }
 
+    public void setVide() {
+        this.setIcon(null);
+    }
+
     public void selectionner() {
         this.setBorder(javax.swing.BorderFactory.createLineBorder(Color.ORANGE, 5));
     }

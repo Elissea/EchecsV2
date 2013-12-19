@@ -39,9 +39,12 @@ public class Fenetre extends JFrame implements ActionListener, MouseListener {
     private JMenuItem hvsia;
     private JMenuItem iavsia;
     private Echiquier echiquier;
+    private ArrayList<Coordonnee> deplacementsPossibles;
 
     public Fenetre(Plateau plateau) {
         this.plateau = plateau;
+        this.deplacementsPossibles = new ArrayList<>();
+
         this.barreMenu = new JMenuBar();
         this.menu = new JMenu("Partie");
         this.hvsh = new JMenuItem("Humain vs Humain");
@@ -85,48 +88,73 @@ public class Fenetre extends JFrame implements ActionListener, MouseListener {
                 }
             }
         }
+        
+        repaint();
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         Vue.Case emplacementSelectionne = (Vue.Case) e.getSource();
 
-        if (selection == null) {
-            selection = emplacementSelectionne;
-            
-            ArrayList<Coordonnee> mouvementsPossibles = controleurPartie.getMouvementsPossibles(emplacementSelectionne.getCoordonnee());
+        boolean exists = false;
 
-            if (mouvementsPossibles.size() > 0) {
-                for (Coordonnee coordonnee : mouvementsPossibles) {
-                    this.getEchiquier().getCases()[coordonnee.getLigne()][coordonnee.getColonne()].selectionner();
+        if (deplacementsPossibles.contains(emplacementSelectionne.getCoordonnee())) {
+            if (controleurPartie.effectuerDeplacement(selection.getCoordonnee(), emplacementSelectionne.getCoordonnee())) {
+                getEchiquier().initialiser();
+
+                for (Coordonnee c : deplacementsPossibles) {
+                    this.getEchiquier().getCases()[c.getLigne()][c.getColonne()].deselectionner();
                 }
+
+                selection = null;
+                deplacementsPossibles.clear();
             }
-        } else if (selection.equals(emplacementSelectionne)) {
-            selection = null;
 
-            ArrayList<Coordonnee> mouvementsPossibles = controleurPartie.getMouvementsPossibles(emplacementSelectionne.getCoordonnee());
-
-            if (mouvementsPossibles.size() > 0) {
-                for (Coordonnee coordonnee : mouvementsPossibles) {
-                    this.getEchiquier().getCases()[coordonnee.getLigne()][coordonnee.getColonne()].deselectionner();
-                }
+            for (Coordonnee c : deplacementsPossibles) {
+                this.getEchiquier().getCases()[c.getLigne()][c.getColonne()].deselectionner();
             }
         } else {
-            ArrayList<Coordonnee> mouvementsPossibles = controleurPartie.getMouvementsPossibles(selection.getCoordonnee());
+            if (selection == null) {
+                selection = emplacementSelectionne;
 
-            if (mouvementsPossibles.size() > 0) {
-                for (Coordonnee coordonnee : mouvementsPossibles) {
-                    this.getEchiquier().getCases()[coordonnee.getLigne()][coordonnee.getColonne()].deselectionner();
+                deplacementsPossibles = controleurPartie.getDeplacementsPossibles(emplacementSelectionne.getCoordonnee());
+
+                if (deplacementsPossibles.size() > 0) {
+                    for (Coordonnee coordonnee : deplacementsPossibles) {
+                        this.getEchiquier().getCases()[coordonnee.getLigne()][coordonnee.getColonne()].selectionner();
+                    }
                 }
-            }
+            } else if (selection.equals(emplacementSelectionne)) {
+                selection = null;
 
-            selection = emplacementSelectionne;
-            
-            mouvementsPossibles = controleurPartie.getMouvementsPossibles(emplacementSelectionne.getCoordonnee());
+                deplacementsPossibles = controleurPartie.getDeplacementsPossibles(emplacementSelectionne.getCoordonnee());
 
-            if (mouvementsPossibles.size() > 0) {
-                for (Coordonnee coordonnee : mouvementsPossibles) {
-                    this.getEchiquier().getCases()[coordonnee.getLigne()][coordonnee.getColonne()].selectionner();
+                if (deplacementsPossibles.size() > 0) {
+                    for (Coordonnee coordonnee : deplacementsPossibles) {
+                        this.getEchiquier().getCases()[coordonnee.getLigne()][coordonnee.getColonne()].deselectionner();
+                    }
+                }
+
+                deplacementsPossibles.clear();
+            } else {
+                deplacementsPossibles = controleurPartie.getDeplacementsPossibles(selection.getCoordonnee());
+
+                if (deplacementsPossibles.size() > 0) {
+                    for (Coordonnee coordonnee : deplacementsPossibles) {
+                        this.getEchiquier().getCases()[coordonnee.getLigne()][coordonnee.getColonne()].deselectionner();
+                    }
+                }
+
+                deplacementsPossibles.clear();
+
+                selection = emplacementSelectionne;
+
+                deplacementsPossibles = controleurPartie.getDeplacementsPossibles(emplacementSelectionne.getCoordonnee());
+
+                if (deplacementsPossibles.size() > 0) {
+                    for (Coordonnee coordonnee : deplacementsPossibles) {
+                        this.getEchiquier().getCases()[coordonnee.getLigne()][coordonnee.getColonne()].selectionner();
+                    }
                 }
             }
         }

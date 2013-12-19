@@ -51,8 +51,6 @@ public class Echiquier extends JPanel {
     public void initialiser() {
         Toolkit toolkit = getToolkit();
 
-        System.out.println("Initialisation du plateau");
-
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 
@@ -86,11 +84,14 @@ public class Echiquier extends JPanel {
                         icon = new ImageIcon(getClass().getResource(imageUrl + "reine.gif"));
                         this.cases[i][j].setImage(icon);
                         break;
+                    case Valeur.VIDE :
+                        this.cases[i][j].setVide();
+                        break;
                 }
             }
         }
     }
-    
+        
     public Vue.Case[][] getCases() {
         return this.cases;
     }

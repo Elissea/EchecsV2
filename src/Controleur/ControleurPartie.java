@@ -12,15 +12,16 @@ public class ControleurPartie {
 
     private ControleurDeplacement controleurDeplacement;
     private Plateau plateau;
-    private Joueur j1, j2;
+    private Joueur j1, j2, joueurActif;
     private int tour;
 
     public ControleurPartie(Joueur j1, Joueur j2, Plateau plateau) {
         this.j1 = j1;
         this.j2 = j2;
+        this.joueurActif = j1;
         this.tour = Couleur.BLANC;
         this.plateau = plateau;
-        this.controleurDeplacement = new ControleurDeplacement(this.plateau); 
+        this.controleurDeplacement = new ControleurDeplacement(this.plateau);
     }
 
     public int getTour() {
@@ -28,25 +29,33 @@ public class ControleurPartie {
     }
 
     public void changeTour() {
-        if (tour == Couleur.BLANC) {
-            tour = Couleur.NOIR;
+        if (this.tour == Couleur.BLANC) {
+            this.joueurActif = j2;
+            this.tour = Couleur.NOIR;
         } else {
+            this.joueurActif = j1;
             tour = Couleur.BLANC;
         }
     }
 
-    public void jouer() {
-    }
-
-    public ArrayList<Coordonnee> getMouvementsPossibles(Coordonnee coordonnee) {
-        ArrayList<Coordonnee> mouvementsPossibles = new ArrayList<>();
+    public ArrayList<Coordonnee> getDeplacementsPossibles(Coordonnee coordonnee) {
+        ArrayList<Coordonnee> deplacementsPossibles = new ArrayList<>();
         Piece piece = this.plateau.getCaseParCoordonnee(coordonnee).getPiece();
 
         if (piece.getValeur() != Valeur.VIDE && piece.getCouleur() == this.tour) {
-            mouvementsPossibles = this.controleurDeplacement.getDeplacementsPossibles(piece, false);
+            deplacementsPossibles = this.controleurDeplacement.getDeplacementsPossibles(piece);
         }
-        
-        return mouvementsPossibles;
+
+        return deplacementsPossibles;
+    }
+
+    public boolean effectuerDeplacement(Coordonnee depart, Coordonnee arrivee) {
+        if (this.controleurDeplacement.validerDeplacement(this.joueurActif, depart, arrivee)) {
+            this.changeTour();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean echecEtMat() {
